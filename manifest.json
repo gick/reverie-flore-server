@@ -1,0 +1,7 @@
+{
+  "name": "reveries-sparql",
+  "short_name": "reveries-sparql",
+  "description": "Interrogation of the reveries KB",
+  "start_url": "/",
+  "display": "standalone"
+}

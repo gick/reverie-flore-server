@@ -1,2 +1,2 @@
-var webDirectory = '/home/gicquel/reveries-sparql-client';
+var webDirectory = '../reverie-flore-client';
 module.exports = webDirectory

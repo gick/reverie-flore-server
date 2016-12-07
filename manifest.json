@@ -1,6 +1,6 @@
 {
-  "name": "reveries-sparql",
-  "short_name": "reveries-sparql",
+  "name": "reverie-flore-server",
+  "short_name": "reverie-server",
   "description": "Interrogation of the reveries KB",
   "start_url": "/",
   "display": "standalone"

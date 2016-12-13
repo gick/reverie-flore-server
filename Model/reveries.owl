@@ -1,0 +1,541 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://reveries-project.fr#"
+     xml:base="http://reveries-project.fr"
+     xmlns:reveries-project="http://reveries-project.fr#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://reveries-project.fr">
+        <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://reveries-project.fr#Anecdote -->
+
+    <owl:AnnotationProperty rdf:about="http://reveries-project.fr#Anecdote">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2004/02/skos/core#note"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://reveries-project.fr#CaractèreDiscriminant -->
+
+    <owl:AnnotationProperty rdf:about="http://reveries-project.fr#CaractèreDiscriminant">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2004/02/skos/core#note"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://reveries-project.fr#Confusions -->
+
+    <owl:AnnotationProperty rdf:about="http://reveries-project.fr#Confusions">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2004/02/skos/core#note"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://reveries-project.fr#habitat -->
+
+    <owl:AnnotationProperty rdf:about="http://reveries-project.fr#habitat">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2004/02/skos/core#note"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://reveries-project.fr#repartition -->
+
+    <owl:AnnotationProperty rdf:about="http://reveries-project.fr#repartition">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2004/02/skos/core#note"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#note -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#note"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/stuff/rev#color -->
+
+    <rdfs:Datatype rdf:about="http://purl.org/stuff/rev#color">
+        <owl:equivalentClass>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal">blue</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal">yellow</rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </owl:equivalentClass>
+    </rdfs:Datatype>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://reveries-project.fr#hasDescriptor -->
+
+    <owl:ObjectProperty rdf:about="http://reveries-project.fr#hasDescriptor">
+        <rdfs:subPropertyOf rdf:resource="http://reveries-project.fr#revProperties"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://reveries-project.fr#hasMorphologicalDescriptor -->
+
+    <owl:ObjectProperty rdf:about="http://reveries-project.fr#hasMorphologicalDescriptor">
+        <rdfs:subPropertyOf rdf:resource="http://reveries-project.fr#hasDescriptor"/>
+        <rdfs:domain rdf:resource="http://reveries-project.fr#MorphologicalTrait"/>
+        <rdfs:range rdf:resource="http://reveries-project.fr#MorphologicalDescriptor"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://reveries-project.fr#hasMorphologicalTrait -->
+
+    <owl:ObjectProperty rdf:about="http://reveries-project.fr#hasMorphologicalTrait">
+        <rdfs:subPropertyOf rdf:resource="http://reveries-project.fr#hasTrait"/>
+        <rdfs:range rdf:resource="http://reveries-project.fr#MorphologicalTrait"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://reveries-project.fr#hasRelatedOrgan -->
+
+    <owl:ObjectProperty rdf:about="http://reveries-project.fr#hasRelatedOrgan">
+        <rdfs:subPropertyOf rdf:resource="http://reveries-project.fr#revProperties"/>
+        <rdfs:domain rdf:resource="http://reveries-project.fr#MorphologicalTrait"/>
+        <rdfs:range rdf:resource="http://reveries-project.fr#Organ"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://reveries-project.fr#hasSocialTrait -->
+
+    <owl:ObjectProperty rdf:about="http://reveries-project.fr#hasSocialTrait">
+        <rdfs:subPropertyOf rdf:resource="http://reveries-project.fr#hasTrait"/>
+        <rdfs:range rdf:resource="http://reveries-project.fr#SocialTrait"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://reveries-project.fr#hasTrait -->
+
+    <owl:ObjectProperty rdf:about="http://reveries-project.fr#hasTrait">
+        <rdfs:subPropertyOf rdf:resource="http://reveries-project.fr#revProperties"/>
+        <rdfs:range rdf:resource="http://reveries-project.fr#Trait"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://reveries-project.fr#hasUsage -->
+
+    <owl:ObjectProperty rdf:about="http://reveries-project.fr#hasUsage">
+        <rdfs:subPropertyOf rdf:resource="http://reveries-project.fr#hasSocialTrait"/>
+        <rdfs:range rdf:resource="http://reveries-project.fr#SocialTrait"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://reveries-project.fr#revProperties -->
+
+    <owl:ObjectProperty rdf:about="http://reveries-project.fr#revProperties"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://reveries-project.fr#Bark -->
+
+    <owl:Class rdf:about="http://reveries-project.fr#Bark">
+        <rdfs:subClassOf rdf:resource="http://reveries-project.fr#Organ"/>
+        <skos:prefLabel>Ecorce</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://reveries-project.fr#BarkAspectDescriptor -->
+
+    <owl:Class rdf:about="http://reveries-project.fr#BarkAspectDescriptor">
+        <rdfs:subClassOf rdf:resource="http://reveries-project.fr#BarkDescriptor"/>
+        <skos:prefLabel xml:lang="fr">Aspect de l&apos;écorce</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://reveries-project.fr#BarkColorDescriptor -->
+
+    <owl:Class rdf:about="http://reveries-project.fr#BarkColorDescriptor">
+        <rdfs:subClassOf rdf:resource="http://reveries-project.fr#BarkDescriptor"/>
+        <skos:prefLabel>Couleur de l&apos;écorce</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://reveries-project.fr#BarkDescriptor -->
+
+    <owl:Class rdf:about="http://reveries-project.fr#BarkDescriptor">
+        <rdfs:subClassOf rdf:resource="http://reveries-project.fr#MorphologicalDescriptor"/>
+        <skos:prefLabel>Caractéristiques de l&apos;écorce</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://reveries-project.fr#EcologicalDescriptor -->
+
+    <owl:Class rdf:about="http://reveries-project.fr#EcologicalDescriptor">
+        <rdfs:subClassOf rdf:resource="http://reveries-project.fr#GenericDescriptor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://reveries-project.fr#Family -->
+
+    <owl:Class rdf:about="http://reveries-project.fr#Family">
+        <rdfs:subClassOf rdf:resource="http://reveries-project.fr#TaxonomicConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://reveries-project.fr#FlowerChaton -->
+
+    <owl:Class rdf:about="http://reveries-project.fr#FlowerChaton">
+        <rdfs:subClassOf rdf:resource="http://reveries-project.fr#Organ"/>
+        <skos:prefLabel>Fleur ou chaton</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://reveries-project.fr#FlowerDescriptor -->
+
+    <owl:Class rdf:about="http://reveries-project.fr#FlowerDescriptor">
+        <rdfs:subClassOf rdf:resource="http://reveries-project.fr#MorphologicalDescriptor"/>
+        <skos:prefLabel>Caractéristique des fleurs</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://reveries-project.fr#FruitAndSeedDescriptor -->
+
+    <owl:Class rdf:about="http://reveries-project.fr#FruitAndSeedDescriptor">
+        <rdfs:subClassOf rdf:resource="http://reveries-project.fr#MorphologicalDescriptor"/>
+        <skos:prefLabel>Caractéristique des fruits et graînes</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://reveries-project.fr#FruitSeed -->
+
+    <owl:Class rdf:about="http://reveries-project.fr#FruitSeed">
+        <rdfs:subClassOf rdf:resource="http://reveries-project.fr#Organ"/>
+        <skos:prefLabel>Fruit ou graine</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://reveries-project.fr#GastronomyUsage -->
+
+    <owl:Class rdf:about="http://reveries-project.fr#GastronomyUsage">
+        <rdfs:subClassOf rdf:resource="http://reveries-project.fr#SocialTrait"/>
+    </owl:Class>
+    
+
+
+    <!-- http://reveries-project.fr#GenericDescriptor -->
+
+    <owl:Class rdf:about="http://reveries-project.fr#GenericDescriptor">
+        <rdfs:subClassOf rdf:resource="http://reveries-project.fr#revRoot"/>
+        <skos:definition>The GenericDescriptor concept is the most generic kind of descriptor defined in reveries ontology. 
+
+ An instance of a GenericDescriptor represents the result of an observation that support botanic identification. Although this observation is associated to a specific plant, the observation might not directly focus on the plant.
+
+For example, the value of local humidity can be considered has a descriptor if using this value can narrow possible candidate during another identification.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://reveries-project.fr#Genus -->
+
+    <owl:Class rdf:about="http://reveries-project.fr#Genus">
+        <rdfs:subClassOf rdf:resource="http://reveries-project.fr#Family"/>
+    </owl:Class>
+    
+
+
+    <!-- http://reveries-project.fr#Leaf -->
+
+    <owl:Class rdf:about="http://reveries-project.fr#Leaf">
+        <rdfs:subClassOf rdf:resource="http://reveries-project.fr#Organ"/>
+        <skos:prefLabel>Feuille</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://reveries-project.fr#LeafAspectDescriptor -->
+
+    <owl:Class rdf:about="http://reveries-project.fr#LeafAspectDescriptor">
+        <rdfs:subClassOf rdf:resource="http://reveries-project.fr#LeafDescriptor"/>
+        <skos:prefLabel xml:lang="fr">Aspect des feuilles</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://reveries-project.fr#LeafBorderDescriptor -->
+
+    <owl:Class rdf:about="http://reveries-project.fr#LeafBorderDescriptor">
+        <rdfs:subClassOf rdf:resource="http://reveries-project.fr#LeafDescriptor"/>
+        <skos:prefLabel xml:lang="fr">Caractéristiques du bord</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://reveries-project.fr#LeafBottomColorDescriptor -->
+
+    <owl:Class rdf:about="http://reveries-project.fr#LeafBottomColorDescriptor">
+        <rdfs:subClassOf rdf:resource="http://reveries-project.fr#LeafColorDescriptor"/>
+        <skos:prefLabel xml:lang="fr">Couleur du dessous</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://reveries-project.fr#LeafColorDescriptor -->
+
+    <owl:Class rdf:about="http://reveries-project.fr#LeafColorDescriptor">
+        <rdfs:subClassOf rdf:resource="http://reveries-project.fr#LeafDescriptor"/>
+        <skos:prefLabel xml:lang="fr">couleur</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://reveries-project.fr#LeafContact_feelDescriptor -->
+
+    <owl:Class rdf:about="http://reveries-project.fr#LeafContact_feelDescriptor">
+        <rdfs:subClassOf rdf:resource="http://reveries-project.fr#LeafDescriptor"/>
+        <skos:prefLabel xml:lang="fr">Carctéristiques propres au toucher</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://reveries-project.fr#LeafDescriptor -->
+
+    <owl:Class rdf:about="http://reveries-project.fr#LeafDescriptor">
+        <rdfs:subClassOf rdf:resource="http://reveries-project.fr#MorphologicalDescriptor"/>
+        <skos:prefLabel>Caractèristique des feuilles</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://reveries-project.fr#LeafDispositionDescriptor -->
+
+    <owl:Class rdf:about="http://reveries-project.fr#LeafDispositionDescriptor">
+        <rdfs:subClassOf rdf:resource="http://reveries-project.fr#LeafDescriptor"/>
+        <skos:prefLabel xml:lang="fr">Dispositions des feuilles</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://reveries-project.fr#LeafNervationDescriptor -->
+
+    <owl:Class rdf:about="http://reveries-project.fr#LeafNervationDescriptor">
+        <rdfs:subClassOf rdf:resource="http://reveries-project.fr#LeafDescriptor"/>
+        <skos:prefLabel xml:lang="fr">Description des nervures</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://reveries-project.fr#LeafPetiolDescriptor -->
+
+    <owl:Class rdf:about="http://reveries-project.fr#LeafPetiolDescriptor">
+        <rdfs:subClassOf rdf:resource="http://reveries-project.fr#LeafDescriptor"/>
+        <skos:prefLabel xml:lang="fr">Description du pétiole</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://reveries-project.fr#LeafPilosityDescriptor -->
+
+    <owl:Class rdf:about="http://reveries-project.fr#LeafPilosityDescriptor">
+        <rdfs:subClassOf rdf:resource="http://reveries-project.fr#LeafDescriptor"/>
+        <skos:prefLabel>Pilosité des feuilles</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://reveries-project.fr#LeafShapeDescriptor -->
+
+    <owl:Class rdf:about="http://reveries-project.fr#LeafShapeDescriptor">
+        <rdfs:subClassOf rdf:resource="http://reveries-project.fr#LeafDescriptor"/>
+        <skos:prefLabel>Caractéristique générale de la forme des feuilles</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://reveries-project.fr#LeafSizeDescriptor -->
+
+    <owl:Class rdf:about="http://reveries-project.fr#LeafSizeDescriptor">
+        <rdfs:subClassOf rdf:resource="http://reveries-project.fr#LeafDescriptor"/>
+        <skos:prefLabel xml:lang="fr">Taille des feuille</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://reveries-project.fr#LeafTopColorDescriptor -->
+
+    <owl:Class rdf:about="http://reveries-project.fr#LeafTopColorDescriptor">
+        <rdfs:subClassOf rdf:resource="http://reveries-project.fr#LeafColorDescriptor"/>
+        <skos:prefLabel xml:lang="fr">Couleur du dessus</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://reveries-project.fr#MedicalUse -->
+
+    <owl:Class rdf:about="http://reveries-project.fr#MedicalUse">
+        <rdfs:subClassOf rdf:resource="http://reveries-project.fr#SocialTrait"/>
+    </owl:Class>
+    
+
+
+    <!-- http://reveries-project.fr#MorphologicalDescriptor -->
+
+    <owl:Class rdf:about="http://reveries-project.fr#MorphologicalDescriptor">
+        <rdfs:subClassOf rdf:resource="http://reveries-project.fr#GenericDescriptor"/>
+        <skos:definition>Morphological descriptors provides help for plant identification. A morphological descriptor associate a visible characteristic (e.g. color) to a well defined part of the plant (e.g. Leaf).</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://reveries-project.fr#MorphologicalTrait -->
+
+    <owl:Class rdf:about="http://reveries-project.fr#MorphologicalTrait">
+        <rdfs:subClassOf rdf:resource="http://reveries-project.fr#Trait"/>
+    </owl:Class>
+    
+
+
+    <!-- http://reveries-project.fr#Morphology -->
+
+    <owl:Class rdf:about="http://reveries-project.fr#Morphology">
+        <rdfs:subClassOf rdf:resource="http://reveries-project.fr#revRoot"/>
+    </owl:Class>
+    
+
+
+    <!-- http://reveries-project.fr#Organ -->
+
+    <owl:Class rdf:about="http://reveries-project.fr#Organ">
+        <rdfs:subClassOf rdf:resource="http://reveries-project.fr#Morphology"/>
+    </owl:Class>
+    
+
+
+    <!-- http://reveries-project.fr#SocialTrait -->
+
+    <owl:Class rdf:about="http://reveries-project.fr#SocialTrait">
+        <rdfs:subClassOf rdf:resource="http://reveries-project.fr#Trait"/>
+    </owl:Class>
+    
+
+
+    <!-- http://reveries-project.fr#SocialUsage -->
+
+    <owl:Class rdf:about="http://reveries-project.fr#SocialUsage">
+        <rdfs:subClassOf rdf:resource="http://reveries-project.fr#SocialTrait"/>
+    </owl:Class>
+    
+
+
+    <!-- http://reveries-project.fr#Specie -->
+
+    <owl:Class rdf:about="http://reveries-project.fr#Specie">
+        <rdfs:subClassOf rdf:resource="http://reveries-project.fr#Genus"/>
+    </owl:Class>
+    
+
+
+    <!-- http://reveries-project.fr#TaxonomicConcept -->
+
+    <owl:Class rdf:about="http://reveries-project.fr#TaxonomicConcept">
+        <rdfs:subClassOf rdf:resource="http://reveries-project.fr#revRoot"/>
+        <skos:definition>Vegetal kingdom is organized following a tree-like structure, where leafs are actual species, and non-leaf nodes represents the set of their children.
+We limit the organization to the three most relevant categories.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://reveries-project.fr#Trait -->
+
+    <owl:Class rdf:about="http://reveries-project.fr#Trait">
+        <rdfs:subClassOf rdf:resource="http://reveries-project.fr#revRoot"/>
+    </owl:Class>
+    
+
+
+    <!-- http://reveries-project.fr#revRoot -->
+
+    <owl:Class rdf:about="http://reveries-project.fr#revRoot">
+        <rdfs:comment>A root specific to reveries ontology to make clear all subclasses are member of</rdfs:comment>
+    </owl:Class>
+    <rdf:Description>
+        <skos:note rdf:resource="http://reveries-project.fr#Famille"/>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.5.20160517-0735) https://github.com/owlcs/owlapi -->
+

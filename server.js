@@ -22,4 +22,4 @@ require('./src/route/documentRoutes.js')(app, sparql); // load routes to service
 require('./src/route/staticRoutes.js')(app); // load satic routes 
 // launch ======================================================================
 //server = https.createServer(https_options, app).listen(PORT);
-app.listen(8000);
+app.listen(8080);

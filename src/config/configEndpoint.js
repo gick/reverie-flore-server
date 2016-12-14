@@ -1,2 +1,2 @@
-var endpoint = 'http://ontologies.reveries-project.fr:3030/flore/sparql'
+var endpoint = 'http://localhost:3030/flore/query'
 module.export =endpoint

@@ -1,9 +1,11 @@
 
 
 module.exports ={ 
-var endpoint=require('../config/configEndpoint.js') 	
 
 	getQueryResult : function(query,res) {
+
+var endpoint=require('../config/configEndpoint.js') 	
+
     var SparqlClient = require('sparql-client');
     var util = require('util');
     var client = new SparqlClient(endpoint);

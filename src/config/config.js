@@ -1,2 +1,2 @@
-var webDirectory = '../reverie-flore-client';
+var webDirectory = '../FloreApp';
 module.exports = webDirectory

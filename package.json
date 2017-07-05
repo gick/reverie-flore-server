@@ -17,10 +17,18 @@
   "author": "Pierre-Yves Gicquel",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.15.2",
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.17.2",
     "busboy-body-parser": "^0.2.0",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.3",
     "express": "^4.14.0",
-    "morgan": "^1.7.0"
+    "express-session": "^1.15.3",
+    "gridfs-stream": "^1.1.1",
+    "mongoose": "^4.11.0",
+    "morgan": "^1.7.0",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0"
   },
   "devDependencies": {},
   "repository": {

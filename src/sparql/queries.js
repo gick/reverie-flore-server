@@ -13,22 +13,39 @@ module.exports = {
 
     listSpeciesPropValues: function() {
         var query = pref.getPrefixes() + '\n' +
-            'select ?speciesName (group_concat(?property; separator=",") as ?props)where { ?species rev:species ?speciesName.?species ?prop ?value.BIND(concat(str(?prop),"?",str(?value)) AS ?property)FILTER ( !strstarts(str(?prop), "http://www.w3.org/1999/02/22-rdf-syntax-ns#type") ) FILTER ( !strstarts(str(?prop), "https://reveries-project.fr#number")) FILTER ( !strstarts(str(?prop), "https://reveries-project.fr#species") )}group by ?speciesName'
+            'select ?speciesName (group_concat(?property; separator=",") as ?props)where { ?species rev:species ?speciesName.?species ?prop ?value.BIND(concat(str(?prop),"?",str(?value)) AS ?property)FILTER ( !strstarts(str(?prop), "http://www.w3.org/1999/02/22-rdf-syntax-ns#type") ) FILTER ( !strstarts(str(?prop), "https://reveries-project.fr#number")) FILTER ( !strstarts(str(?prop), "https://reveries-project.fr#species") )}group by ?speciesName order by ?speciesName'
         return query
     },
 
     listProp: function() {
         var query = pref.getPrefixes() + '\n' +
-            "SELECT DISTINCT ?prop WHERE {?species rdf:type <https://reveries-project.fr#speciesformat-v1-xls-feuil1-csv>.?species ?prop ?val.      FILTER ( !strstarts(str(?prop), 'http://www.w3.org/1999/02/22-rdf-syntax-ns#type') )      FILTER ( !strstarts(str(?prop), 'https://reveries-project.fr#numbers') )      FILTER ( !strstarts(str(?prop), 'https://reveries-project.fr#species') )}"
+            "SELECT DISTINCT ?prop ?label WHERE {?species rdf:type <https://reveries-project.fr#speciesformat-v1-xls-feuil1-csv>.?species ?prop ?val. ?prop rdf:label ?label.     FILTER ( !strstarts(str(?prop), 'http://www.w3.org/1999/02/22-rdf-syntax-ns#type') )      FILTER ( !strstarts(str(?prop), 'https://reveries-project.fr#numbers') )      FILTER ( !strstarts(str(?prop), 'https://reveries-project.fr#species') )}"
         return query
     },
-
+    listSpeciesConstraint: function(constrainArray) {
+        console.log('constraint arrazay',constrainArray)
+        var queryConstraint = ''
+        if (constrainArray) {
+            if (typeof constrainArray == 'string') {
+                queryConstraint = '?species ' + constrainArray + '.}'
+            } else {
+                for (var i = 0; i < constrainArray.length; i++) {
+                    var newConstraint = '?species ' + constrainArray[i] + '.'
+                    queryConstraint = queryConstraint + newConstraint;
+                }
+                queryConstraint = queryConstraint + '}'
+            }
+            var query = pref.getPrefixes() + '\n' +
+                "SELECT DISTINCT ?species WHERE {?species rdf:type <https://reveries-project.fr#speciesformat-v1-xls-feuil1-csv>."  + queryConstraint;
+            return query
+        }
+        return this.listSpecies()
+    },
 
     listPropValue: function(propName) {
         var query = pref.getPrefixes() + '\n' +
             "SELECT DISTINCT ?value WHERE {?species rdf:type <https://reveries-project.fr#speciesformat-v1-xls-feuil1-csv>." + '\n' +
             "?species rev:" + propName + " ?value }"
-        console.log(query)
         return query
     },
 

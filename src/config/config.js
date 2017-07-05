@@ -1,2 +1,2 @@
-var webDirectory = '../FloreApp';
+var webDirectory = '../floreMobile';
 module.exports = webDirectory

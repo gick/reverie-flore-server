@@ -1,5 +1,8 @@
-var queries = require('../sparql/queries.js')
+    var queries = require('../sparql/queries.js')
 var Element = require('../model/element.js');
+var Releve = require('../model/releve.js');
+var FloreData = require('../model/floreData.js');
+
 
 module.exports = function(app, sparqlClient, gfs) {
     // Route for serving dynamic content (documents stored in mongodb)
@@ -109,7 +112,7 @@ module.exports = function(app, sparqlClient, gfs) {
         element.latitude = req.body.latitude
         element.longitude = req.body.longitude
         element.owner = req.user._id
-        if (req.file.image) {
+        if (req.files.image) {
             var part = req.files.image;
             var writestream = gfs.createWriteStream({
                 filename: part.name,
@@ -149,9 +152,26 @@ module.exports = function(app, sparqlClient, gfs) {
     });
 
 
+    app.get('/listFloreData',function(req,res){
+        FloreData.find({}).limit(10000).exec(function(err, flore) {
+            console.log(err)
+            res.send(flore)
+        })
+
+    }) 
+
+
     app.get('/listSpecies', function(req, res) {
         var query = queries.listSpecies();
         sparqlClient.getQueryResult(query, res);
+
+    })
+
+    app.get('/releve',function(req,res){
+        Releve.find({}, function(err, game) {
+            console.log(err)
+            res.send(game)
+        })
 
     })
 

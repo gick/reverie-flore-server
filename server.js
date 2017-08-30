@@ -1,8 +1,10 @@
-// server.js
+	// server.js
 
 // set up ======================================================================
 // get all the tools we need
 var express = require('express');
+var io = require('socket.io');
+var http = require('http');
 var app = express();
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
@@ -11,10 +13,11 @@ var mongoose = require('mongoose');
 var passport = require('passport');
 var Grid = require('gridfs-stream');
 var cookieParser = require('cookie-parser');
-var bodyParser   = require('body-parser');
-var session      = require('express-session');
+var bodyParser = require('body-parser');
+var session = require('express-session');
 
-var flash    = require('connect-flash');
+
+var flash = require('connect-flash');
 var configDB = require('./src/config/database.js');
 Grid.mongo = mongoose.mongo;
 
@@ -41,7 +44,7 @@ var PORT = 8000;
 // routes ======================================================================
 require('./src/route/routes.js')(app, passport); // load routes to services
 
-require('./src/route/documentRoutes.js')(app, sparql,gfs); // load routes to services
+require('./src/route/documentRoutes.js')(app, sparql, gfs); // load routes to services
 require('./src/route/staticRoutes.js')(app); // load satic routes 
 // launch ======================================================================
 //server = https.createServer(https_options, app).listen(PORT);

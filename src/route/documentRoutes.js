@@ -4,7 +4,7 @@
     var mongoose = require('mongoose');
     var fs = require('fs');
     var csv = require('fast-csv');
-    var stream = fs.createReadStream('../rawData/export-tela-botanica.csv');
+    var stream = fs.createReadStream('../../rawData/export-tela-botanica.csv');
 
 
     //read in CSV as stream row by row

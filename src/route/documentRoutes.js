@@ -4,7 +4,7 @@
     var mongoose = require('mongoose');
     var fs = require('fs');
     var csv = require('fast-csv');
-    var stream = fs.createReadStream('/home/test/Downloads/export-tela-botanica.csv');
+    var stream = fs.createReadStream('../rawData/export-tela-botanica.csv');
 
 
     //read in CSV as stream row by row
@@ -20,7 +20,7 @@
                 .on('data', function(data) {
                     // console.log(data);
                     // masterList.push(data);
-                    addObservation(data);
+                    console.log(data);
                 })
                 .on('end', function() {
                     // console.log('done');
@@ -29,7 +29,7 @@
 
             function addObservation(data) {
                 //create model and save to database
-                var observation = new Observation(data);
+                var observation = new Observation({Specie:data.Specie,AltName:data.AltName,Family:data.Family,lat:data.lat,lng:data.lng,location:{type:'Point',coordinates:[data.lat,data.lng]}});
                 observation.save(function(err) {
                     if (err) // ...
                         console.log(err);
@@ -202,7 +202,7 @@
 
             var topLat = req.param('topLat')
             var topLng = req.param('topLng')
-            
+
             Observation.find({
                 "location": {
                     "$geoWithin": {

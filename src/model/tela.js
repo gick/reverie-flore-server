@@ -11,14 +11,18 @@ var mapinfoSchema = mongoose.Schema({
 })*/
 
 // generating a hash
+var tela = mongoose.Schema({
+
+    "Espèce": String,
+    "FullEspece":String,
+    "City":String,
+    "Family": String,
+    "lat": Number,
+    "lng": Number,
+    "date": Date,
+});
+
+module.exports = mongoose.model('Tela', tela);
+// generating a hash
 
 // create the model for users and expose it to our app
-module.exports = mongoose.model('FloreData',
-    new mongoose.Schema({
-    "Specie": String,
-    "Family": String,
-    "Longitude": Number,
-    "Latitude": Number,
-    "Date": Date,
-    }),
-    'floredata'); // collection

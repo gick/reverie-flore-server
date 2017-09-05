@@ -48,4 +48,4 @@ require('./src/route/documentRoutes.js')(app, sparql, gfs); // load routes to se
 require('./src/route/staticRoutes.js')(app); // load satic routes 
 // launch ======================================================================
 //server = https.createServer(https_options, app).listen(PORT);
-app.listen(8080);
+app.listen(80);

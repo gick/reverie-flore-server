@@ -8,7 +8,9 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "keywords": [
     "Semantic",
@@ -18,21 +20,22 @@
   "license": "ISC",
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
-    "body-parser": "^1.17.2",
+    "body-parser": "^1.18.2",
     "busboy-body-parser": "^0.2.0",
     "connect-flash": "^0.1.1",
     "cookie-parser": "^1.4.3",
-    "express": "^4.14.0",
-    "express-session": "^1.15.3",
+    "express": "^4.16.0",
+    "express-session": "^1.15.6",
     "fast-csv": "^2.4.1",
     "gridfs-stream": "^1.1.1",
     "http": "0.0.0",
-    "mongoose": "^4.11.0",
-    "morgan": "^1.7.0",
+    "mongoose": "^4.13.17",
+    "morgan": "^1.9.1",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
     "socket.io": "^2.0.3",
-    "sparql-client": "^0.2.0"
+    "sparql-client": "^0.2.0",
+    "snyk": "^1.279.1"
   },
   "devDependencies": {},
   "repository": {
@@ -42,5 +45,6 @@
   "bugs": {
     "url": "https://github.com/gick/reverie-flore-server/issues"
   },
-  "homepage": "https://github.com/gick/reverie-flore-server#readme"
+  "homepage": "https://github.com/gick/reverie-flore-server#readme",
+  "snyk": true
 }

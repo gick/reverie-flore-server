@@ -40,7 +40,7 @@ app.use(flash()); // use connect-flash for flash messages stored in session
 var gfs = new Grid(mongoose.connection.db);
 
 // basic config
-var PORT = 8000;
+var PORT = 8080;
 // routes ======================================================================
 require('./src/route/routes.js')(app, passport); // load routes to services
 
@@ -48,4 +48,4 @@ require('./src/route/documentRoutes.js')(app, sparql, gfs); // load routes to se
 require('./src/route/staticRoutes.js')(app); // load satic routes 
 // launch ======================================================================
 //server = https.createServer(https_options, app).listen(PORT);
-app.listen(80);
+app.listen(PORT);
